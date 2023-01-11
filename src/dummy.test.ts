@@ -1,5 +1,5 @@
 describe('Dummy tests ', () => {
 	test('sum', () => {
-		expect(1 + 1).toBe(1)
+		expect(1 + 1).toBe(2)
 	})
 })

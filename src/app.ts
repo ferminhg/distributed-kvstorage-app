@@ -1,14 +1,21 @@
 import express from 'express'
-import { StatusService } from './StatusService'
+import { StatusService } from './application/StatusService'
+import { SetService } from './application/SetService'
 
 const app = express()
-const port = 3000
+const PORT = 3000
 
 app.get('/', (req, res) => {
 	const service = new StatusService()
 	res.send(service.run())
 })
 
-app.listen(port, () => {
-	return console.log(`👾 listening at http://localhost:${port}`)
+app.post('/set', (req, res) => {
+	const { key, value } = req.query
+	const service = new SetService()
+	res.send(service.run(key as string, value as string))
+})
+
+app.listen(PORT, () => {
+	return console.log(`👾 listening at http://localhost:${PORT}`)
 })

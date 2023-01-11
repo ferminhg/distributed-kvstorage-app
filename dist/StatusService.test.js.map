@@ -1,0 +1,1 @@
+{"version":3,"file":"StatusService.test.js","sourceRoot":"","sources":["../src/StatusService.test.ts"],"names":[],"mappings":";;AAAA,mDAA+C;AAC/C,QAAQ,CAAC,eAAe,EAAE,GAAG,EAAE;IAC9B,IAAI,CAAC,KAAK,EAAE,GAAG,EAAE;QAChB,MAAM,aAAa,GAAG,IAAI,6BAAa,EAAE,CAAA;QACzC,MAAM,CAAC,aAAa,CAAC,GAAG,EAAE,CAAC,CAAC,IAAI,CAAC,IAAI,CAAC,CAAA;IACvC,CAAC,CAAC,CAAA;AACH,CAAC,CAAC,CAAA"}
