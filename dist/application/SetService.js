@@ -1,20 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ServiceResponse = exports.SetService = void 0;
+exports.SetServiceFactory = exports.SetService = void 0;
+const InMemoryDataRepository_1 = require("../infra/InMemoryDataRepository");
+const ServiceResponse_1 = require("./ServiceResponse");
 class SetService {
-    run(key, value) {
-        return new ServiceResponse('ok', '');
-        // return `Set ${key} to ${value}`
+    constructor(repository) {
+        this.repository = repository;
+    }
+    run(key, data) {
+        this.repository.set(key, data);
+        return ServiceResponse_1.ServiceResponse.ok();
     }
 }
 exports.SetService = SetService;
-class ServiceResponse {
-    constructor(status, message) {
-        this.status = status;
-        this.message = message;
-        this.status = status;
-        this.message = message;
+class SetServiceFactory {
+    static build() {
+        return new SetService(InMemoryDataRepository_1.InMemoryDataRepository.empty());
     }
 }
-exports.ServiceResponse = ServiceResponse;
+exports.SetServiceFactory = SetServiceFactory;
 //# sourceMappingURL=SetService.js.map
