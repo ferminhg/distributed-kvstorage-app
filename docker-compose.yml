@@ -1,0 +1,19 @@
+version: "2"
+services:
+  service1:
+    build: .
+    ports:
+      - "8001:3000"
+  service2:
+    build: .
+    ports:
+      - "8002:3000"
+  service3:
+    build: .
+    ports:
+      - "8003:3000"
+  service4:
+    build: .
+    ports:
+      - "8004:3000"
+  
