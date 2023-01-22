@@ -3,25 +3,20 @@ import { Data } from "../domain/Data";
 export class ServiceResponse {
     public static readonly STATUS_OK = 'ok';
     public static readonly STATUS_KO = 'ko';
-    data!: Data
 
-    constructor(public status: string, data: Data | undefined) {
-        if (data) {
-            this.data = data
-        }
+    constructor(public status: string, public data: Data) {
     }
 
     public static ok(): ServiceResponse {
-        return new ServiceResponse(this.STATUS_OK, undefined)
+        return new ServiceResponse(this.STATUS_OK, Data.empty())
     }
 
     public static fromData(data: Data): ServiceResponse {
-        let response = new ServiceResponse(this.STATUS_OK, data)
-        return response
+        return  new ServiceResponse(this.STATUS_OK, data)
     }
 
     public static fromError(): ServiceResponse {
-        return new ServiceResponse(this.STATUS_KO, undefined)
+        return new ServiceResponse(this.STATUS_KO, Data.empty())
     }
 
     public success(): boolean {
