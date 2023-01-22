@@ -21,14 +21,9 @@ jobs:
           npm install
       - name: npm lint
         run: |
-          npm run lint
-      # - name: npm test
-      #   run: |
-      #     npm run test:ci
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
-        with:
-            output: report-markdown
-      - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-            message: ${{ steps.coverage.outputs.report }}
+          npx run lint
+      - name: npm test
+        run: |
+          npx jest --coverage --coverageReporters json-summary
+      - name: Jest Coverage Comment
+        uses: MishaKav/jest-coverage-comment@main
