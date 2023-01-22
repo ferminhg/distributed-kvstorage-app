@@ -3,7 +3,11 @@ import { DataRepository } from "../domain/DataRepository"
 
 export class InMemoryDataRepository implements DataRepository {
     private data: Data
+    private key: string | undefined
     constructor(data: any = {}) {
+        if (data.key !== undefined) {
+            this.key = data.key
+        }
         this.data = data
     }
 
@@ -15,10 +19,14 @@ export class InMemoryDataRepository implements DataRepository {
         return new InMemoryDataRepository()
     }
 
-    public get(key: string): Data {
+    public get(key: string): Data | undefined {
+        if (this.key !== key) {
+            return undefined
+        }
         return this.data
     }
     public set(key: string, value: string): void {
+        this.key = key
         this.data = Data.from(key, value)
     }
 }

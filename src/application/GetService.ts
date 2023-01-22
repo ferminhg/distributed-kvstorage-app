@@ -10,6 +10,9 @@ export class GetService {
     }
     public run(key: string): ServiceResponse {
         const data = this.repository.get(key)
+        if (data === undefined) {
+            return ServiceResponse.fromError()
+        }
         return ServiceResponse.fromData(data)
     }
 }
