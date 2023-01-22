@@ -1,0 +1,28 @@
+# .github/workflows/ci.yml
+name: Node CI
+on: [push]
+
+env:
+  NODE_VERSION: 18
+
+jobs:
+  ci:
+    name: CI Steps
+    runs-on: ubuntu-latest
+    steps:
+      - name: install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: npm install
+        run: |
+          npm install
+      - name: npm lint
+        run: |
+          npm run lint
+      - name: npm test
+        run: |
+          npm run test:ci
+      
