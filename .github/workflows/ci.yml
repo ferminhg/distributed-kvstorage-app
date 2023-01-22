@@ -16,14 +16,16 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: checkout
         uses: actions/checkout@v2
-      - name: npm install
+      - name:  install
         run: |
           npm install
-      - name: npm lint
+      - name: lint
         run: |
           npx run lint
-      - name: npm test
+      - name: test
         run: |
-          npx jest --coverage --coverageReporters json-summary
-      - name: Jest Coverage Comment
-        uses: MishaKav/jest-coverage-comment@main
+          npm run test:ci
+      - name: Generating coverage badges
+        uses: jpb06/jest-badges-action@latest
+          with:
+            branches: main

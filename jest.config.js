@@ -1,5 +1,6 @@
 module.exports = {
 	clearMocks: true,
+	coverageReporters: ["json-summary"],
 	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
 	roots: ['<rootDir>/src'],
 	testEnvironment: 'node',
