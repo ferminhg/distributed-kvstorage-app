@@ -7,7 +7,7 @@
     "start": "tsc && node dist/app.js",
     "lint": "eslint . --ext .ts",
     "build": "npx tsc",
-    "test": "jest",
+    "test": "jest --watch",
     "test:ci": "jest --ci --coverage",
     "test:co": "jest --coverage"
   },
