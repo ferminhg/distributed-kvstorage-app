@@ -8,6 +8,7 @@ export class GetService {
     constructor(repository: DataRepository) {
         this.repository = repository
     }
+    
     public run(key: string): ServiceResponse {
         const data = this.repository.get(key)
         if (data === undefined) {
